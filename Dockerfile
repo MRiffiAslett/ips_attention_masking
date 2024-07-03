@@ -31,6 +31,7 @@ COPY requirements.txt /app/requirements.txt
 
 # Install Python packages from requirements.txt
 RUN pip3 install -r /app/requirements.txt
+RUN pip3 install torch==1.13.0 torchvision==0.14.0 --extra-index-url https://download.pytorch.org/whl/cu117
 
 # Copy the local repository into the Docker image
 COPY . /app/ips_attention_masking
