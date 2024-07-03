@@ -22,7 +22,7 @@ fi
 docker build -t $IMAGE_NAME .
 
 # 2. Run the Docker container and mount the repository
-docker run --gpus all -it --rm -v "$REPO_DIR:/app/ips_attention_masking" $IMAGE_NAME bash -c "
+docker run --gpus all --shm-size=2g -it --rm -v "$REPO_DIR:/app/ips_attention_masking" $IMAGE_NAME bash -c "
   cd /app/ips_attention_masking
   # 3. Run the data script to ensure data is downloaded
   python3 $DATA_SCRIPT_PATH --width 1500 --height 1500 $DATA_DIR
