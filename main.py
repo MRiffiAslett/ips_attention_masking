@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 
+
 import os
+
+# Ensure the script is running from the correct directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(script_dir, 'config', 'mnist_config.yml')
+
+with open(config_path, "r") as ymlfile:
+    # Your code here
+
 import yaml
 from pprint import pprint
 
