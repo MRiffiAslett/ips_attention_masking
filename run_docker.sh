@@ -9,13 +9,13 @@ export DOCKER_HOST=unix:///var/tmp/xdg_runtime_dir_$UID/docker.sock
 
 # Variables
 IMAGE_NAME="my-custom-image"
-REPO_DIR="$(pwd)/ips_attention_masking"
+REPO_DIR="$(pwd)"
 MAIN_SCRIPT_PATH="/app/ips_attention_masking/main.py"
 DATA_SCRIPT_PATH="/app/ips_attention_masking/data/megapixel_mnist/make_mnist.py"
 DATA_DIR="/app/ips_attention_masking/data/megapixel_mnist/dsets/megapixel_mnist_1500"
 OUTPUT_FILE="/app/results_regularized_28_28.txt"
 
-# Ensure the repository is already cloned in your local directory
+# Ensure the repository directory exists
 if [ ! -d "$REPO_DIR" ]; then
   echo "Repository directory $REPO_DIR does not exist. Please clone it before running this script."
   exit 1
