@@ -32,7 +32,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip3 install -r /app/requirements.txt
 
 # Copy the local repository into the Docker image
-COPY ./ips_attention_masking /app/ips_attention_masking
+COPY . /app/ips_attention_masking
 
 # Set the command to run when the container starts
 CMD ["bash"]
