@@ -11,7 +11,7 @@ RESULTS_DIR="$REPO_DIR/results"
 MAIN_SCRIPT_PATH="/app/ips_attention_masking/main.py"
 DATA_SCRIPT_PATH="/app/ips_attention_masking/data/megapixel_mnist/make_mnist.py"
 DATA_DIR="/app/ips_attention_masking/data/megapixel_mnist/dsets/megapixel_mnist_1500"
-OUTPUT_FILE="/app/results/results_regularized_28_28.txt"
+OUTPUT_FILE="/app/results/results_regularized_01_28_28.txt"
 
 # Ensure the repository and results directories exist
 if [ ! -d "$REPO_DIR" ]; then
