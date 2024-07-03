@@ -1,0 +1,40 @@
+# Use the base image with CUDA support
+FROM nvcr.io/nvidia/cuda:11.6.2-base-ubuntu20.04
+
+# Set the working directory
+WORKDIR /app
+
+# Set environment variables to configure tzdata non-interactively
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe/London
+
+# Install system packages and Python
+RUN apt-get update && apt-get install -y \
+    openslide-tools \
+    python3 \
+    python3-pip \
+    python3-openslide \
+    expect \
+    tzdata \
+    && rm -rf /var/lib/apt/lists/*
+
+# Check Python and pip installation
+RUN python3 --version && pip3 --version
+
+# Upgrade cryptography and pyopenssl to avoid compatibility issues
+RUN pip3 install --upgrade cryptography pyopenssl
+
+# Copy the requirements script
+COPY requirements.sh /app/requirements.sh
+
+# Run the requirements script to install Python packages
+RUN chmod +x /app/requirements.sh && /app/requirements.sh
+
+# Copy the script to download the dataset
+COPY data/megapixel_mnist/make_mnist.py /app/data/megapixel_mnist/make_mnist.py
+
+# Download the dataset
+RUN python3 /app/data/megapixel_mnist/make_mnist.py --width 1500 --height 1500 /app/data/megapixel_mnist/dsets/megapixel_mnist_1500
+
+# Set the command to run when the container starts
+CMD ["bash"]
