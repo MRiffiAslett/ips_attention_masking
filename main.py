@@ -1,15 +1,4 @@
-#!/usr/bin/env python
-
-
 import os
-
-# Ensure the script is running from the correct directory
-script_dir = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(script_dir, 'config', 'mnist_config.yml')
-
-with open(config_path, "r") as ymlfile:
-    # Your code here
-
 import yaml
 from pprint import pprint
 
@@ -25,13 +14,17 @@ from data.megapixel_mnist.mnist_dataset import MegapixelMNIST
 from architecture.ips_net import IPSNet
 from training.iterative import train_one_epoch, evaluate
 
+# Ensure the script is running from the correct directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+config_path = os.path.join(script_dir, 'config', 'mnist_config.yml')
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 dataset = 'mnist' # either one of {'mnist', 'camelyon', 'traffic'}
 
 # get config
-with open(os.path.join('config', dataset + '_config.yml'), "r") as ymlfile:
+with open(config_path, "r") as ymlfile:
     c = yaml.load(ymlfile, Loader=yaml.FullLoader)
     print("Used config:"); pprint(c);
     conf = Struct(**c)
