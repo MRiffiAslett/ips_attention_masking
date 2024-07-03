@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y \
     python3-openslide \
     expect \
     tzdata \
-    nvidia-container-runtime-hook \
-    && rm -rf /var/lib/apt/lists/*
+    git && \
+    rm -rf /var/lib/apt/lists/*
 
 # Check Python and pip installation
 RUN python3 --version && pip3 --version
@@ -25,17 +25,14 @@ RUN python3 --version && pip3 --version
 # Upgrade cryptography and pyopenssl to avoid compatibility issues
 RUN pip3 install --upgrade cryptography pyopenssl
 
-# Copy the requirements script
-COPY requirements.sh /app/requirements.sh
+# Copy the requirements.txt file
+COPY requirements.txt /app/requirements.txt
 
-# Run the requirements script to install Python packages
-RUN chmod +x /app/requirements.sh && /app/requirements.sh
+# Install Python packages from requirements.txt
+RUN pip3 install -r /app/requirements.txt
 
-# Copy the script to download the dataset
-COPY data/megapixel_mnist/make_mnist.py /app/data/megapixel_mnist/make_mnist.py
-
-# Download the dataset
-RUN python3 /app/data/megapixel_mnist/make_mnist.py --width 1500 --height 1500 /app/data/megapixel_mnist/dsets/megapixel_mnist_1500
+# Copy the local repository into the Docker image
+COPY ./ips_attention_masking /app/ips_attention_masking
 
 # Set the command to run when the container starts
 CMD ["bash"]
