@@ -45,9 +45,9 @@ elif dataset == 'camelyon':
     test_data = CamelyonFeatures(conf, train=False)
 
 train_loader = DataLoader(train_data, batch_size=conf.B_seq, shuffle=True,
-    num_workers=2, pin_memory=False, persistent_workers=False)
+    num_workers=1, pin_memory=False, persistent_workers=False)
 test_loader = DataLoader(test_data, batch_size=conf.B_seq, shuffle=False,
-    num_workers=2, pin_memory=False, persistent_workers=False)
+    num_workers=1, pin_memory=False, persistent_workers=False)
 
 # define network
 net = IPSNet(device, conf).to(device)
@@ -75,13 +75,4 @@ for epoch in range(conf.n_epoch):
     log_writer_train.compute_metric()
 
     more_to_print = {'lr': optimizer.param_groups[0]['lr']}
-    log_writer_train.print_stats(epoch, train=True, **more_to_print)
-
-    try:
-        evaluate(net, criterions, test_loader, device, log_writer_test, conf)
-    except Exception as e:
-        print(f"Error during evaluation epoch {epoch}: {e}")
-        continue
-    
-    log_writer_test.compute_metric()
-    log_writer_test.print_stats(epoch, train=False)
+    log_writer_train.print_stats(epoch, train=True, **more_to
