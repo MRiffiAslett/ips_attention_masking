@@ -4,9 +4,6 @@
 module load rootless-docker
 start_rootless_docker.sh --quiet
 
-# Set Docker host environment variable
-export DOCKER_HOST=unix:///var/tmp/xdg_runtime_dir_$UID/docker.sock
-
 # Variables
 IMAGE_NAME="my-custom-image"
 REPO_DIR="$(pwd)"
