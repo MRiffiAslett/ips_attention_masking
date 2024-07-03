@@ -45,9 +45,9 @@ elif dataset == 'camelyon':
     test_data = CamelyonFeatures(conf, train=False)
 
 train_loader = DataLoader(train_data, batch_size=conf.B_seq, shuffle=True,
-    num_workers=conf.n_worker, pin_memory=conf.pin_memory, persistent_workers=True)
+    num_workers=2, pin_memory=False, persistent_workers=False)
 test_loader = DataLoader(test_data, batch_size=conf.B_seq, shuffle=False,
-    num_workers=conf.n_worker, pin_memory=conf.pin_memory, persistent_workers=True)
+    num_workers=2, pin_memory=False, persistent_workers=False)
 
 # define network
 net = IPSNet(device, conf).to(device)
@@ -66,15 +66,22 @@ log_writer_train = Logger(conf.tasks)
 log_writer_test = Logger(conf.tasks)
 
 for epoch in range(conf.n_epoch):
-    
-    train_one_epoch(net, criterions, train_loader, optimizer, device, epoch, log_writer_train, conf)
+    try:
+        train_one_epoch(net, criterions, train_loader, optimizer, device, epoch, log_writer_train, conf)
+    except Exception as e:
+        print(f"Error during training epoch {epoch}: {e}")
+        continue
 
     log_writer_train.compute_metric()
 
     more_to_print = {'lr': optimizer.param_groups[0]['lr']}
     log_writer_train.print_stats(epoch, train=True, **more_to_print)
 
-    evaluate(net, criterions, test_loader, device, log_writer_test, conf)
+    try:
+        evaluate(net, criterions, test_loader, device, log_writer_test, conf)
+    except Exception as e:
+        print(f"Error during evaluation epoch {epoch}: {e}")
+        continue
     
     log_writer_test.compute_metric()
     log_writer_test.print_stats(epoch, train=False)
