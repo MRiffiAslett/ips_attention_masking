@@ -13,7 +13,7 @@ OUTPUT_FILE="results/results_attention_masking_01_28_28.txt"
 docker build -t $IMAGE_NAME .
 
 # 2. Run the Docker container and mount the repository
-docker run --gpus all -it --rm -v "$(pwd)":/app $IMAGE_NAME bash -c "
+docker run --gpus all --runtime=nvidia -it --rm -v "$(pwd)":/app $IMAGE_NAME bash -c "
   # 3. Clone the repository inside the container
   if [ ! -d /app/$REPO_DIR ]; then
     git clone $REPO_URL /app/$REPO_DIR
