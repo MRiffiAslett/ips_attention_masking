@@ -23,5 +23,5 @@ docker run --gpus all -it --rm -v "$(pwd)":/app $IMAGE_NAME bash -c "
   python3 $DATA_SCRIPT_PATH --width 1500 --height 1500 $DATA_DIR
 
   # 5. Run the main script and capture the output
-  unbuffer python3 $MAIN_SCRIPT_PATH | tee /app/$OUTPUT_FILE
+  unbuffer python3 $MAIN_SCRIPT_PATH | tee $OUTPUT_FILE
 "
