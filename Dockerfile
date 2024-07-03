@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     python3-openslide \
     expect \
     tzdata \
-    git && \
+    git \
+    ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
 # Check Python and pip installation
