@@ -1,5 +1,5 @@
 #opt
-n_epoch: 10          # number of epochs
+n_epoch: 150          # number of epochs
 B: 16                 # batch size
 B_seq: 16             # sequential batch size, set either to
                       # B (eager and lazy loading) or 1 (eager sequential loading)
@@ -28,7 +28,7 @@ n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
 # masking
-mask_p: 0.1
+mask_p: 0.2
 mask_K: 10
 
 #ips
