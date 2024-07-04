@@ -266,13 +266,13 @@ def main(argv):
     parser.add_argument(
         "--n_train",
         type=int,
-        default=100,
+        default=5000,
         help="How many images to create for training set"
     )
     parser.add_argument(
         "--n_test",
         type=int,
-        default=100,
+        default=1000,
         help="How many images to create for test set"
     )
     parser.add_argument(
