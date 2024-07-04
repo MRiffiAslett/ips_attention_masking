@@ -27,6 +27,9 @@ pretrained: False       # should ImageNet weights be used?
 n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
+mask_p :   # Probability of masking
+mask_K :   # Number of top-K instances to consider for masking
+
 #ips
 shuffle: True               # should patches be shuffled?
 shuffle_style: 'batch'      # 'batch' or 'instance'. 'batch' shuffles each instance of the batch the same way
