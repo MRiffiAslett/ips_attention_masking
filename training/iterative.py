@@ -147,10 +147,8 @@ class IPSNet(nn.Module):
         attn = self.transf.get_scores(emb_to_score)  # (B, M+I)
 
         # 1. Get indices of top-K patches for masking
+        #  The torch.topk function in PyTorch is used to retrieve the top k elements along a specified dimension of a tensor. It returns both the values and the indices of these top k elements.
         top_K_idx = torch.topk(attn, self.mask_K, dim=-1)[1]  # (B, K)
-
-        
-        # The torch.topk function in PyTorch is used to retrieve the top k elements along a specified dimension of a tensor. It returns both the values and the indices of these top k elements.
 
         # 2. Create a mask with probability p for top-K instances
         mask = (torch.rand(top_K_idx.shape, device=attn.device) < self.mask_p).float()
