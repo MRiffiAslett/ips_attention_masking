@@ -168,19 +168,21 @@ class IPSNet(nn.Module):
         # print(f"Attn shape after get_scores: {attn.shape}")
     
         # 1. Get indices of top-K patches for masking
+        # finds the indices of the top-K elements in the tensor attn along the last dimension (dim=-1).
         top_K_idx = torch.topk(attn, self.mask_K, dim=-1)[1]  # (B, K)
-        
-        # print(f"Top_K_idx shape: {top_K_idx.shape}")
-    
-        # The torch.topk function in PyTorch is used to retrieve the top k elements along a specified dimension of a tensor. It returns both the values and the indices of these top k elements.
-    
+                
         # 2. Create a mask with probability p for top-K instances
+        # torch.rand(top_K_idx.shape, device=attn.device) generates a tensor of random numbers with the same shape as top_K_idx. These numbers are uniformly distributed between 0 and 1.
+        # (torch.rand(top_K_idx.shape, device=attn.device) < self.mask_p) compares each element of the random tensor with self.mask_p. This results in a boolean tensor where each element is True with probability self.mask_p and False otherwise.
+        # .float() converts this boolean tensor into a float tensor, where True becomes 1.0 and False becomes 0.0
         mask = (torch.rand(top_K_idx.shape, device=attn.device) < self.mask_p).float()
-        
-        # print(f"Mask shape: {mask.shape}")
+    
     
         # 3. Apply the mask to the top-K attention scores
-        # Scatter the mask over the top-K indices to set some of them to 0
+        # "attn.gather(1, top_K_idx)": Gathers the attention scores from attn at the indices specified by top_K_idx.
+        # (1 - mask):  Generates a binary mask tensor where 1 - mask indicates which top-K elements should be modified (if mask is 1, the element will be masked out).
+        # "attn.gather(1, top_K_idx) * (1 - mask)": Zeros out the attention scores where mask is 1, effectively masking those elements.
+        # attn.scatter_(1, top_K_idx, ...): catters (or writes) the modified attention scores back into attn at the indices specified by top_K_idx.
         attn.scatter_(1, top_K_idx, attn.gather(1, top_K_idx) * (1 - mask))
     
         # 4. Get indices of top-M patches after masking
