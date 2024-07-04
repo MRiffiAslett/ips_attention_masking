@@ -28,7 +28,7 @@ n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
 # masking
-mask_p: 0.8
+mask_p: 0.1
 mask_K: 10
 
 #ips
@@ -49,7 +49,7 @@ D_k: 16             # dimension of query/keys per head
 D_v: 16             # dimension of values per head
 D_inner: 512        # intermediate layer dimension in MLP
 attn_dropout: 0   # attention dropout
-dropout: 0.1        # standard dropout
+dropout: 0        # standard dropout
 
 # define name, activation fn of final layer and metric to be used
 tasks:
