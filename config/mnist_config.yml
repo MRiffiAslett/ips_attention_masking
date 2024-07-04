@@ -27,8 +27,8 @@ pretrained: False       # should ImageNet weights be used?
 n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
-mask_p :   # Probability of masking
-mask_K :   # Number of top-K instances to consider for masking
+mask_p :  0.6 # Probability of masking
+mask_K : 10  # Number of top-K instances to consider for masking
 
 #ips
 shuffle: True               # should patches be shuffled?
@@ -47,7 +47,7 @@ D: 128              # dimension of features
 D_k: 16             # dimension of query/keys per head
 D_v: 16             # dimension of values per head
 D_inner: 512        # intermediate layer dimension in MLP
-attn_dropout: 0.1   # attention dropout
+attn_dropout: 0   # attention dropout
 dropout: 0.1        # standard dropout
 
 # define name, activation fn of final layer and metric to be used
