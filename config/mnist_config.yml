@@ -1,9 +1,9 @@
 #opt
-n_epoch: 5          # number of epochs
+n_epoch: 150          # number of epochs
 B: 16                 # batch size
 B_seq: 16             # sequential batch size, set either to
                       # B (eager and lazy loading) or 1 (eager sequential loading)
-n_epoch_warmup: 3    # number of warm-up epochs
+n_epoch_warmup: 10    # number of warm-up epochs
 lr: 0.001             # learning rate
 wd: 0.1               # weight decay
 
@@ -28,7 +28,7 @@ n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
 # masking
-mask_p: 0.6
+mask_p: 0.8
 mask_K: 10
 
 #ips
@@ -48,7 +48,7 @@ D: 128              # dimension of features
 D_k: 16             # dimension of query/keys per head
 D_v: 16             # dimension of values per head
 D_inner: 512        # intermediate layer dimension in MLP
-attn_dropout: 0.1   # attention dropout
+attn_dropout: 0   # attention dropout
 dropout: 0.1        # standard dropout
 
 # define name, activation fn of final layer and metric to be used
