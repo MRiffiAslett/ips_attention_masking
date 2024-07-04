@@ -29,7 +29,7 @@ n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
 # masking
 mask_p: 0.6
-mask_k: 10
+mask_K: 10
 
 #ips
 shuffle: True               # should patches be shuffled?
