@@ -2,11 +2,11 @@
 #SBATCH --job-name=multi_script_job
 #SBATCH --partition=its-2a30-01-part
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
-#SBATCH --mem=32GB
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8GB
 #SBATCH --gpus-per-task=1
 #SBATCH --gpu-bind=single:1
-#SBATCH --time=24:00:00
+#SBATCH --time=08:00:00
 #SBATCH --chdir=/home/mra23/ips_attention_masking
 #SBATCH -e /home/mra23/ips_attention_masking/output/slurm-%x-%j.err
 #SBATCH -o /home/mra23/ips_attention_masking/output/slurm-%x-%j.out
