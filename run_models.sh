@@ -12,4 +12,4 @@
 
 # Load the necessary module and run the script
 module load rootless-docker
-bash run_docker.sh
+bash run_batch.sh
