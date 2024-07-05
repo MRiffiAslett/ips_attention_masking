@@ -2,7 +2,7 @@
 #SBATCH --job-name=multi_script_job
 #SBATCH --partition=its-2a30-01-part
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=60GB
 #SBATCH --gpus-per-task=1
 #SBATCH --gpu-bind=single:1
@@ -71,30 +71,4 @@ docker run --gpus all --shm-size=4g -it --rm -v "$REPO_DIR:/app/ips_attention_ma
   echo 'Running data script'
   # 3. Run the data script to ensure data is downloaded (if not already done)
   python3 $DATA_SCRIPT_PATH --width 1500 --height 1500 $DATA_DIR
-  if [ $? -ne 0 ]; then
-    echo 'Data script failed'
-    exit 1
-  fi
-  echo 'Data script completed'
-
-  echo 'Running main scripts'
-  # 4. Run the main scripts sequentially and capture the output
-  unbuffer python3 $MAIN_SCRIPT_1_PATH | tee $OUTPUT_FILE_1
-  if [ $? -ne 0 ]; then
-    echo 'Main script 1 failed'
-    exit 1
-  fi
-  unbuffer python3 $MAIN_SCRIPT_2_PATH | tee $OUTPUT_FILE_2
-  if [ $? -ne 0 ]; then
-    echo 'Main script 2 failed'
-    exit 1
-  fi
-  unbuffer python3 $MAIN_SCRIPT_3_PATH | tee $OUTPUT_FILE_3
-  if [ $? -ne 0 ]; then
-    echo 'Main script 3 failed'
-    exit 1
-  fi
-  echo 'Main scripts completed'
-" >> $LOGFILE 2>&1
-
-echo "Completed Docker container run" >> $LOGFILE
+  if [ $? -ne
