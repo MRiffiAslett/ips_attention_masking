@@ -32,7 +32,7 @@ docker build -t $IMAGE_NAME .
 # 2. Run the Docker container and mount the repository and results directory
 docker run --gpus all --shm-size=4g -it --rm -v "$REPO_DIR:/app/ips_attention_masking" -v "$RESULTS_DIR:/app/results" $IMAGE_NAME bash -c "
   cd /app/ips_attention_masking
-  # 3. Run the data script to ensure data is downloaded
+  # 3. Run the data script to ensure data is downloaded (if not already done)
   python3 $DATA_SCRIPT_PATH --width 1500 --height 1500 $DATA_DIR
 
   # 4. Run the main scripts sequentially and capture the output
