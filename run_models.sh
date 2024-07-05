@@ -9,11 +9,19 @@
 #SBATCH -e /home/mra23/ips_attention_masking/output/slurm-%x-%j.err
 #SBATCH -o /home/mra23/ips_attention_masking/output/slurm-%x-%j.out
 
+echo "Starting job script"
+
 # Load the necessary module
 module load rootless-docker
+
+echo "Loaded rootless-docker module"
 
 # Navigate to the working directory
 cd /home/mra23/ips_attention_masking
 
+echo "Changed directory to /home/mra23/ips_attention_masking"
+
 # Execute the run_docker.sh script
-bash run_docker.sh
+bash run_models.sh
+
+echo "Executed run_docker.sh script"
