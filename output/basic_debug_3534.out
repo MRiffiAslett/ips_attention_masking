@@ -1,0 +1,127 @@
+Printing environment variables...
+SHELL=/bin/bash
+COLORTERM=truecolor
+SLURM_JOB_USER=mra23
+SLURM_TASKS_PER_NODE=1
+SLURM_JOB_UID=5026
+TERM_PROGRAM_VERSION=1.91.0
+SLURM_TASK_PID=274866
+LMOD_arch=x86_64
+SLURM_LOCALID=0
+SLURM_SUBMIT_DIR=/home/mra23/ips_attention_masking
+HOSTNAME=its-2a30-01.st-andrews.ac.uk
+SLURMD_NODENAME=its-2a30-01.st-andrews.ac.uk
+SLURM_NODE_ALIASES=(null)
+SLURM_CLUSTER_NAME=csgpucluster01
+SLURM_CPUS_ON_NODE=1
+SLURM_JOB_CPUS_PER_NODE=1
+LMOD_DIR=/usr/share/lmod/lmod/libexec
+PWD=/home/mra23/ips_attention_masking
+SLURM_GTIDS=0
+LOGNAME=mra23
+XDG_SESSION_TYPE=tty
+SLURM_JOB_PARTITION=its-2a30-01-part
+MODULESHOME=/usr/share/lmod/lmod
+MANPATH=/usr/share/lmod/lmod/share/man::
+LMOD_PREPEND_BLOCK=normal
+SLURM_JOB_NUM_NODES=1
+VSCODE_GIT_ASKPASS_NODE=/home/mra23/.vscode-server/cli/servers/Stable-ea1445cc7016315d0f5728f8e8b12a45dc0a7286/server/node
+SLURM_JOBID=3534
+SLURM_JOB_QOS=its-2a30-01-limit-01
+MOTD_SHOWN=pam
+HOME=/home/mra23
+LANG=en_GB.UTF-8
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+SLURM_PROCID=0
+SSL_CERT_DIR=/usr/lib/ssl/certs
+TMPDIR=/tmp
+GIT_ASKPASS=/home/mra23/.vscode-server/cli/servers/Stable-ea1445cc7016315d0f5728f8e8b12a45dc0a7286/server/extensions/git/dist/askpass.sh
+SLURM_CPUS_PER_TASK=1
+SLURM_NTASKS=1
+SLURM_TOPOLOGY_ADDR=its-2a30-01.st-andrews.ac.uk
+LMOD_VERSION=6.6
+SSH_CONNECTION=138.251.20.140 35914 138.251.13.180 22
+MODULEPATH_ROOT=/sw/modules
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+LESSCLOSE=/usr/bin/lesspipe %s %s
+XDG_SESSION_CLASS=user
+LMOD_PKG=/usr/share/lmod/lmod
+SLURM_MEM_PER_NODE=2048
+SLURM_WORKING_CLUSTER=csgpucluster01:its-gpu-headnode.st-andrews.ac.uk:6817:9728:109
+TERM=xterm-256color
+LESSOPEN=| /usr/bin/lesspipe %s
+USER=mra23
+SLURM_NODELIST=its-2a30-01.st-andrews.ac.uk
+VSCODE_GIT_IPC_HANDLE=/run/user/5026/vscode-git-772e53cc9c.sock
+ENVIRONMENT=BATCH
+SLURM_JOB_ACCOUNT=compute-account
+SLURM_PRIO_PROCESS=0
+SLURM_NPROCS=1
+LMOD_SETTARG_CMD=:
+SHLVL=2
+SLURM_NNODES=1
+BASH_ENV=/usr/share/lmod/lmod/init/bash
+LMOD_FULL_SETTARG_SUPPORT=no
+LMOD_sys=Linux
+XDG_SESSION_ID=11714
+SLURM_SUBMIT_HOST=its-gpu-headnode.st-andrews.ac.uk
+LD_LIBRARY_PATH=/usr/local/cuda/lib
+XDG_RUNTIME_DIR=/run/user/5026
+LMOD_COLORIZE=yes
+SLURM_JOB_ID=3534
+SSL_CERT_FILE=/usr/lib/ssl/certs/ca-certificates.crt
+SLURM_NODEID=0
+SSH_CLIENT=138.251.20.140 35914 22
+VSCODE_GIT_ASKPASS_MAIN=/home/mra23/.vscode-server/cli/servers/Stable-ea1445cc7016315d0f5728f8e8b12a45dc0a7286/server/extensions/git/dist/askpass-main.js
+XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+SLURM_CONF=/etc/slurm/slurm.conf
+BROWSER=/home/mra23/.vscode-server/cli/servers/Stable-ea1445cc7016315d0f5728f8e8b12a45dc0a7286/server/bin/helpers/browser.sh
+PATH=/home/mra23/.vscode-server/cli/servers/Stable-ea1445cc7016315d0f5728f8e8b12a45dc0a7286/server/bin/remote-cli:/home/mra23/.local/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SLURM_JOB_NAME=basic_debug_job
+MODULEPATH=/sw/modules/all:/sw/hpc-sdk/modulefiles:/sw/software/rootless-docker/modulefiles
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/5026/bus
+LMOD_CMD=/usr/share/lmod/lmod/libexec/lmod
+SLURM_JOB_GID=5026
+OLDPWD=/home/mra23
+SLURM_JOB_NODELIST=its-2a30-01.st-andrews.ac.uk
+TERM_PROGRAM=vscode
+VSCODE_IPC_HOOK_CLI=/run/user/5026/vscode-ipc-06481b84-e62d-4c45-a4af-5edbfa70c734.sock
+BASH_FUNC_ml%%=() {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+BASH_FUNC_module%%=() {  eval $($LMOD_CMD bash "$@");
+ [ $? = 0 ] && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+_=/usr/bin/env
+Current directory: /home/mra23/ips_attention_masking
+Listing files in the current directory:
+total 100
+drwxrwxr-x 11 mra23 mra23  4096 Jul  5 21:12 .
+drwxr-xr-x  5 mra23 mra23   151 Jul  4 12:30 ..
+drwxrwxr-x  3 mra23 mra23    84 Jul  4 21:43 architecture
+drwxrwxr-x  2 mra23 mra23   161 Jul  5 19:43 config
+drwxrwxr-x  6 mra23 mra23    98 Jul  3 14:02 data
+-rw-rw-r--  1 mra23 mra23  1158 Jul  3 13:53 Dockerfile
+drwxrwxr-x  8 mra23 mra23   220 Jul  5 20:47 .git
+drwxrwxr-x  2 mra23 mra23    21 Jul  3 11:37 images
+-rw-rw-r--  1 mra23 mra23     0 Jul  3 11:37 __init__.py
+-rw-rw-r--  1 mra23 mra23 21920 Jul  3 11:37 ips_example.ipynb
+-rw-rw-r--  1 mra23 mra23  1067 Jul  3 11:37 LICENSE
+-rw-rw-r--  1 mra23 mra23  2935 Jul  5 19:43 main_1.py
+-rw-rw-r--  1 mra23 mra23  2935 Jul  5 19:43 main_2.py
+-rw-rw-r--  1 mra23 mra23  2935 Jul  5 19:43 main_3.py
+-rwxrwxr-x  1 mra23 mra23  2929 Jul  3 14:59 main.py
+drwxr-xr-x  2 mra23 mra23  4096 Jul  5 21:15 output
+-rw-rw-r--  1 mra23 mra23  2643 Jul  3 11:37 README.md
+-rw-rw-r--  1 mra23 mra23  2363 Jul  3 11:37 requirements.sh
+-rw-rw-r--  1 mra23 mra23  1232 Jul  3 13:58 requirements.txt
+drwxrwxr-x  2 mra23 mra23    70 Jul  5 12:35 results
+-rw-rw-r--  1 mra23 mra23  1607 Jul  5 20:35 run_batch.sh
+-rwxrwxr-x  1 mra23 mra23  1231 Jul  5 12:30 run_docker.sh
+-rw-rw-r--  1 mra23 mra23  3298 Jul  5 20:35 run_models.sh
+-rw-rw-r--  1 mra23 mra23  6611 Jul  5 21:08 slurm-3530.out
+-rw-rw-r--  1 mra23 mra23  6666 Jul  5 21:12 slurm-3531.out
+-rw-rw-r--  1 mra23 mra23   429 Jul  5 20:47 test_job.sh
+drwxrwxr-x  3 mra23 mra23    64 Jul  4 14:24 training
+drwxrwxr-x  3 mra23 mra23    41 Jul  3 14:02 utils
+Hello from basic debug job

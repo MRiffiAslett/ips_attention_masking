@@ -1,0 +1,6 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+/var/spool/slurm/d/job03557/slurm_script: line 37: unexpected EOF while looking for matching `"'
+/var/spool/slurm/d/job03557/slurm_script: line 40: syntax error: unexpected end of file

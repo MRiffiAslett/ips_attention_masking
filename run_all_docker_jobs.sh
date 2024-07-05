@@ -1,4 +1,13 @@
 #!/bin/bash
+#SBATCH --job-name=run_all_docker_jobs
+#SBATCH --partition=its-2a30-01-part
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10GB
+#SBATCH --time=01:00:00
+#SBATCH --chdir=/home/mra23/ips_attention_masking
+#SBATCH -e /home/mra23/ips_attention_masking/output/run_all_docker_jobs_%j.err
+#SBATCH -o /home/mra23/ips_attention_masking/output/run_all_docker_jobs_%j.out
 
 # Start rootless Docker daemon
 module load rootless-docker
@@ -30,7 +39,7 @@ mkdir -p "$RESULTS_DIR"
 docker build -t $IMAGE_NAME .
 
 # 2. Run the Docker container and mount the repository and results directory
-docker run --gpus all --shm-size=4g -it --rm -v "$REPO_DIR:/app/ips_attention_masking" -v "$RESULTS_DIR:/app/results" $IMAGE_NAME bash -c "
+docker run --gpus all --shm-size=4g --rm -v "$REPO_DIR:/app/ips_attention_masking" -v "$RESULTS_DIR:/app/results" $IMAGE_NAME bash -c "
   cd /app/ips_attention_masking
   # 3. Run the data script to ensure data is downloaded (if not already done)
   python3 $DATA_SCRIPT_PATH --width 1500 --height 1500 $DATA_DIR

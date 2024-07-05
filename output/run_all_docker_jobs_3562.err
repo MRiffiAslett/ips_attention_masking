@@ -1,0 +1,5 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+slurmstepd: error: *** JOB 3562 ON its-2a30-01.st-andrews.ac.uk CANCELLED AT 2024-07-05T23:15:29 ***

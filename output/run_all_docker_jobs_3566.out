@@ -1,0 +1,263 @@
+Sending build context to Docker daemon   53.5MB
+Step 1/12 : FROM nvcr.io/nvidia/cuda:11.6.2-base-ubuntu20.04
+ ---> 2098e65daccd
+Step 2/12 : WORKDIR /app
+ ---> Using cache
+ ---> 15db9de2454a
+Step 3/12 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> c97a7687ef83
+Step 4/12 : ENV TZ=Europe/London
+ ---> Using cache
+ ---> 560c640e413a
+Step 5/12 : RUN apt-get update && apt-get install -y     openslide-tools     python3     python3-pip     python3-openslide     expect     tzdata     git     ffmpeg &&     rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 10f9e3dc8123
+Step 6/12 : RUN python3 --version && pip3 --version
+ ---> Using cache
+ ---> 0f5c4cf430b0
+Step 7/12 : RUN pip3 install --upgrade cryptography pyopenssl
+ ---> Using cache
+ ---> e12552edfd8c
+Step 8/12 : COPY requirements.txt /app/requirements.txt
+ ---> Using cache
+ ---> f091bf5b1665
+Step 9/12 : RUN pip3 install -r /app/requirements.txt
+ ---> Using cache
+ ---> 3336a5843db4
+Step 10/12 : RUN pip3 install torch==1.13.0 torchvision==0.14.0 --extra-index-url https://download.pytorch.org/whl/cu117
+ ---> Using cache
+ ---> 774ed22771cb
+Step 11/12 : COPY . /app/ips_attention_masking
+ ---> 74780628360b
+Step 12/12 : CMD ["bash"]
+ ---> Running in c47f49a31fc7
+Removing intermediate container c47f49a31fc7
+ ---> cd855f313684
+Successfully built cd855f313684
+Successfully tagged my-custom-image:latest
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+    8192/11490434 [..............................] - ETA: 0s   49152/11490434 [..............................] - ETA: 18s   81920/11490434 [..............................] - ETA: 22s  278528/11490434 [..............................] - ETA: 8s   491520/11490434 [>.............................] - ETA: 5s  745472/11490434 [>.............................] - ETA: 4s 1310720/11490434 [==>...........................] - ETA: 2s 1990656/11490434 [====>.........................] - ETA: 1s 3121152/11490434 [=======>......................] - ETA: 1s 3989504/11490434 [=========>....................] - ETA: 0s 4775936/11490434 [===========>..................] - ETA: 0s 5554176/11490434 [=============>................] - ETA: 0s 6307840/11490434 [===============>..............] - ETA: 0s 6995968/11490434 [=================>............] - ETA: 0s 7684096/11490434 [===================>..........] - ETA: 0s 8355840/11490434 [====================>.........] - ETA: 0s 9060352/11490434 [======================>.......] - ETA: 0s 9764864/11490434 [========================>.....] - ETA: 0s10436608/11490434 [==========================>...] - ETA: 0s11157504/11490434 [============================>.] - ETA: 0s11490434/11490434 [==============================] - 1s 0us/step
+Sparsifying dataset
+[1000DProcessing     1 /     32[1000DProcessing     2 /     32[1000DProcessing     3 /     32[1000DProcessing     4 /     32[1000DProcessing     5 /     32[1000DProcessing     6 /     32[1000DProcessing     7 /     32[1000DProcessing     8 /     32[1000DProcessing     9 /     32[1000DProcessing    10 /     32[1000DProcessing    11 /     32[1000DProcessing    12 /     32[1000DProcessing    13 /     32[1000DProcessing    14 /     32[1000DProcessing    15 /     32[1000DProcessing    16 /     32[1000DProcessing    17 /     32[1000DProcessing    18 /     32[1000DProcessing    19 /     32[1000DProcessing    20 /     32[1000DProcessing    21 /     32[1000DProcessing    22 /     32[1000DProcessing    23 /     32[1000DProcessing    24 /     32[1000DProcessing    25 /     32[1000DProcessing    26 /     32[1000DProcessing    27 /     32[1000DProcessing    28 /     32[1000DProcessing    29 /     32[1000DProcessing    30 /     32[1000DProcessing    31 /     32[1000DProcessing    32 /     32
+Sparsifying dataset
+[1000DProcessing     1 /     32[1000DProcessing     2 /     32[1000DProcessing     3 /     32[1000DProcessing     4 /     32[1000DProcessing     5 /     32[1000DProcessing     6 /     32[1000DProcessing     7 /     32[1000DProcessing     8 /     32[1000DProcessing     9 /     32[1000DProcessing    10 /     32[1000DProcessing    11 /     32[1000DProcessing    12 /     32[1000DProcessing    13 /     32[1000DProcessing    14 /     32[1000DProcessing    15 /     32[1000DProcessing    16 /     32[1000DProcessing    17 /     32[1000DProcessing    18 /     32[1000DProcessing    19 /     32[1000DProcessing    20 /     32[1000DProcessing    21 /     32[1000DProcessing    22 /     32[1000DProcessing    23 /     32[1000DProcessing    24 /     32[1000DProcessing    25 /     32[1000DProcessing    26 /     32[1000DProcessing    27 /     32[1000DProcessing    28 /     32[1000DProcessing    29 /     32[1000DProcessing    30 /     32[1000DProcessing    31 /     32[1000DProcessing    32 /     32
+Used config:
+{'B': 16,
+ 'B_seq': 16,
+ 'D': 128,
+ 'D_inner': 512,
+ 'D_k': 16,
+ 'D_v': 16,
+ 'H': 8,
+ 'I': 100,
+ 'M': 100,
+ 'N': 900,
+ 'attn_dropout': 0,
+ 'data_dir': 'data/megapixel_mnist/dsets/megapixel_mnist_1500',
+ 'dropout': 0,
+ 'eager': True,
+ 'enc_type': 'resnet18',
+ 'eps': 1e-06,
+ 'is_image': True,
+ 'lr': 0.001,
+ 'mask_K': 10,
+ 'mask_p': 0.4,
+ 'n_chan_in': 1,
+ 'n_class': 10,
+ 'n_epoch': 3,
+ 'n_epoch_warmup': 1,
+ 'n_res_blocks': 2,
+ 'n_token': 4,
+ 'n_worker': 8,
+ 'patch_size': [50, 50],
+ 'patch_stride': [50, 50],
+ 'pin_memory': True,
+ 'pretrained': False,
+ 'seed': 0,
+ 'shuffle': True,
+ 'shuffle_style': 'batch',
+ 'tasks': {'task0': {'act_fn': 'softmax',
+                     'id': 0,
+                     'metric': 'accuracy',
+                     'name': 'majority'},
+           'task1': {'act_fn': 'softmax',
+                     'id': 1,
+                     'metric': 'accuracy',
+                     'name': 'max'},
+           'task2': {'act_fn': 'softmax',
+                     'id': 2,
+                     'metric': 'accuracy',
+                     'name': 'top'},
+           'task3': {'act_fn': 'sigmoid',
+                     'id': 3,
+                     'metric': 'multilabel_accuracy',
+                     'name': 'multi'}},
+ 'track_efficiency': False,
+ 'track_epoch': 0,
+ 'use_pos': True,
+ 'wd': 0.1}
+Train Epoch: 1 
+task: majority, mean loss: 2.40932, accuracy: 0.12500, task: max, mean loss: 2.34953, accuracy: 0.09375, task: top, mean loss: 2.50731, accuracy: 0.09375, task: multi, mean loss: 0.71362, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.99495, lr: 0.001
+
+Test Epoch: 1 
+task: majority, mean loss: 2.45106, accuracy: 0.06250, task: max, mean loss: 1.92281, accuracy: 0.28125, task: top, mean loss: 2.50169, accuracy: 0.06250, task: multi, mean loss: 0.69018, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.89144
+
+Train Epoch: 2 
+task: majority, mean loss: 2.23246, accuracy: 0.15625, task: max, mean loss: 1.89344, accuracy: 0.21875, task: top, mean loss: 2.30735, accuracy: 0.09375, task: multi, mean loss: 0.67323, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.77662, lr: 0.0005005
+
+Test Epoch: 2 
+task: majority, mean loss: 2.46111, accuracy: 0.06250, task: max, mean loss: 1.80811, accuracy: 0.28125, task: top, mean loss: 2.54878, accuracy: 0.15625, task: multi, mean loss: 0.65790, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.86897
+
+Train Epoch: 3 
+task: majority, mean loss: 2.20658, accuracy: 0.15625, task: max, mean loss: 1.79182, accuracy: 0.21875, task: top, mean loss: 2.19484, accuracy: 0.18750, task: multi, mean loss: 0.65225, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.71137, lr: 1e-06
+
+Test Epoch: 3 
+task: majority, mean loss: 2.46119, accuracy: 0.06250, task: max, mean loss: 1.81062, accuracy: 0.28125, task: top, mean loss: 2.53832, accuracy: 0.15625, task: multi, mean loss: 0.65547, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.86640
+
+Used config:
+{'B': 16,
+ 'B_seq': 16,
+ 'D': 128,
+ 'D_inner': 512,
+ 'D_k': 16,
+ 'D_v': 16,
+ 'H': 8,
+ 'I': 100,
+ 'M': 100,
+ 'N': 900,
+ 'attn_dropout': 0,
+ 'data_dir': 'data/megapixel_mnist/dsets/megapixel_mnist_1500',
+ 'dropout': 0,
+ 'eager': True,
+ 'enc_type': 'resnet18',
+ 'eps': 1e-06,
+ 'is_image': True,
+ 'lr': 0.001,
+ 'mask_K': 10,
+ 'mask_p': 0.6,
+ 'n_chan_in': 1,
+ 'n_class': 10,
+ 'n_epoch': 3,
+ 'n_epoch_warmup': 1,
+ 'n_res_blocks': 2,
+ 'n_token': 4,
+ 'n_worker': 8,
+ 'patch_size': [50, 50],
+ 'patch_stride': [50, 50],
+ 'pin_memory': True,
+ 'pretrained': False,
+ 'seed': 0,
+ 'shuffle': True,
+ 'shuffle_style': 'batch',
+ 'tasks': {'task0': {'act_fn': 'softmax',
+                     'id': 0,
+                     'metric': 'accuracy',
+                     'name': 'majority'},
+           'task1': {'act_fn': 'softmax',
+                     'id': 1,
+                     'metric': 'accuracy',
+                     'name': 'max'},
+           'task2': {'act_fn': 'softmax',
+                     'id': 2,
+                     'metric': 'accuracy',
+                     'name': 'top'},
+           'task3': {'act_fn': 'sigmoid',
+                     'id': 3,
+                     'metric': 'multilabel_accuracy',
+                     'name': 'multi'}},
+ 'track_efficiency': False,
+ 'track_epoch': 0,
+ 'use_pos': True,
+ 'wd': 0.1}
+Train Epoch: 1 
+task: majority, mean loss: 2.40441, accuracy: 0.15625, task: max, mean loss: 2.36539, accuracy: 0.09375, task: top, mean loss: 2.51853, accuracy: 0.09375, task: multi, mean loss: 0.71357, multilabel_accuracy: 0.00000, avg. loss over tasks: 2.00048, lr: 0.001
+
+Test Epoch: 1 
+task: majority, mean loss: 2.44736, accuracy: 0.06250, task: max, mean loss: 1.92833, accuracy: 0.28125, task: top, mean loss: 2.48795, accuracy: 0.06250, task: multi, mean loss: 0.68985, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.88837
+
+Train Epoch: 2 
+task: majority, mean loss: 2.22957, accuracy: 0.15625, task: max, mean loss: 1.89817, accuracy: 0.28125, task: top, mean loss: 2.28910, accuracy: 0.09375, task: multi, mean loss: 0.67322, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.77251, lr: 0.0005005
+
+Test Epoch: 2 
+task: majority, mean loss: 2.46447, accuracy: 0.06250, task: max, mean loss: 1.80780, accuracy: 0.28125, task: top, mean loss: 2.54568, accuracy: 0.15625, task: multi, mean loss: 0.65770, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.86891
+
+Train Epoch: 3 
+task: majority, mean loss: 2.20008, accuracy: 0.15625, task: max, mean loss: 1.79597, accuracy: 0.28125, task: top, mean loss: 2.18738, accuracy: 0.18750, task: multi, mean loss: 0.65151, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.70874, lr: 1e-06
+
+Test Epoch: 3 
+task: majority, mean loss: 2.45596, accuracy: 0.06250, task: max, mean loss: 1.80138, accuracy: 0.28125, task: top, mean loss: 2.53931, accuracy: 0.15625, task: multi, mean loss: 0.65638, multilabel_accuracy: 0.03125, avg. loss over tasks: 1.86326
+
+Used config:
+{'B': 16,
+ 'B_seq': 16,
+ 'D': 128,
+ 'D_inner': 512,
+ 'D_k': 16,
+ 'D_v': 16,
+ 'H': 8,
+ 'I': 100,
+ 'M': 100,
+ 'N': 900,
+ 'attn_dropout': 0,
+ 'data_dir': 'data/megapixel_mnist/dsets/megapixel_mnist_1500',
+ 'dropout': 0,
+ 'eager': True,
+ 'enc_type': 'resnet18',
+ 'eps': 1e-06,
+ 'is_image': True,
+ 'lr': 0.001,
+ 'mask_K': 10,
+ 'mask_p': 0.8,
+ 'n_chan_in': 1,
+ 'n_class': 10,
+ 'n_epoch': 3,
+ 'n_epoch_warmup': 1,
+ 'n_res_blocks': 2,
+ 'n_token': 4,
+ 'n_worker': 8,
+ 'patch_size': [50, 50],
+ 'patch_stride': [50, 50],
+ 'pin_memory': True,
+ 'pretrained': False,
+ 'seed': 0,
+ 'shuffle': True,
+ 'shuffle_style': 'batch',
+ 'tasks': {'task0': {'act_fn': 'softmax',
+                     'id': 0,
+                     'metric': 'accuracy',
+                     'name': 'majority'},
+           'task1': {'act_fn': 'softmax',
+                     'id': 1,
+                     'metric': 'accuracy',
+                     'name': 'max'},
+           'task2': {'act_fn': 'softmax',
+                     'id': 2,
+                     'metric': 'accuracy',
+                     'name': 'top'},
+           'task3': {'act_fn': 'sigmoid',
+                     'id': 3,
+                     'metric': 'multilabel_accuracy',
+                     'name': 'multi'}},
+ 'track_efficiency': False,
+ 'track_epoch': 0,
+ 'use_pos': True,
+ 'wd': 0.1}
+Train Epoch: 1 
+task: majority, mean loss: 2.39508, accuracy: 0.15625, task: max, mean loss: 2.36938, accuracy: 0.09375, task: top, mean loss: 2.51751, accuracy: 0.09375, task: multi, mean loss: 0.71514, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.99928, lr: 0.001
+
+Test Epoch: 1 
+task: majority, mean loss: 2.44636, accuracy: 0.06250, task: max, mean loss: 1.93075, accuracy: 0.28125, task: top, mean loss: 2.48807, accuracy: 0.06250, task: multi, mean loss: 0.69096, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.88903
+
+Train Epoch: 2 
+task: majority, mean loss: 2.22845, accuracy: 0.15625, task: max, mean loss: 1.89940, accuracy: 0.28125, task: top, mean loss: 2.28925, accuracy: 0.09375, task: multi, mean loss: 0.67447, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.77289, lr: 0.0005005
+
+Test Epoch: 2 
+task: majority, mean loss: 2.45828, accuracy: 0.06250, task: max, mean loss: 1.80658, accuracy: 0.28125, task: top, mean loss: 2.54276, accuracy: 0.15625, task: multi, mean loss: 0.65910, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.86668
+
+Train Epoch: 3 
+task: majority, mean loss: 2.19667, accuracy: 0.15625, task: max, mean loss: 1.79546, accuracy: 0.28125, task: top, mean loss: 2.18553, accuracy: 0.18750, task: multi, mean loss: 0.65344, multilabel_accuracy: 0.00000, avg. loss over tasks: 1.70778, lr: 1e-06
+
+Test Epoch: 3 
+task: majority, mean loss: 2.46189, accuracy: 0.06250, task: max, mean loss: 1.80723, accuracy: 0.28125, task: top, mean loss: 2.54896, accuracy: 0.15625, task: multi, mean loss: 0.65742, multilabel_accuracy: 0.03125, avg. loss over tasks: 1.86888
+
