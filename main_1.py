@@ -16,12 +16,12 @@ from training.iterative import train_one_epoch, evaluate
 
 # Ensure the script is running from the correct directory
 script_dir = os.path.dirname(os.path.abspath(__file__))
-config_path = os.path.join(script_dir, 'config', 'mnist_config.yml')
+config_path = os.path.join(script_dir, 'config', 'mnist_config_1.yml')
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-dataset = 'mnist' # either one of {'mnist', 'camelyon', 'traffic'}
+dataset = 'mnist_1' # either one of {'mnist', 'camelyon', 'traffic'}
 
 # get config
 with open(config_path, "r") as ymlfile:
@@ -34,7 +34,7 @@ torch.manual_seed(conf.seed)
 np.random.seed(conf.seed)
 
 # define datasets and dataloaders
-if dataset == 'mnist':
+if dataset == 'mnist_1':
     train_data = MegapixelMNIST(conf, train=True)
     test_data = MegapixelMNIST(conf, train=False)
 elif dataset == 'traffic':
