@@ -28,7 +28,7 @@ n_chan_in: 1            # number of input channels
 n_res_blocks: 2         # number of residual ResNet blocks, mnist only uses 2
 
 # masking
-mask_p: 0.1
+mask_p: 0.8
 mask_K: 10
 
 #ips
