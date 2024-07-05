@@ -2,8 +2,8 @@
 #SBATCH --job-name=multi_script_job
 #SBATCH --partition=its-2a30-01-part
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=50GB
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=32GB
 #SBATCH --gpus-per-task=1
 #SBATCH --gpu-bind=single:1
 #SBATCH --time=24:00:00
@@ -85,4 +85,16 @@ docker run --gpus all --shm-size=4g -it --rm -v "$REPO_DIR:/app/ips_attention_ma
     exit 1
   fi
   unbuffer python3 $MAIN_SCRIPT_2_PATH | tee $OUTPUT_FILE_2
-  if [ $? -ne
+  if [ $? -ne 0 ]; then
+    echo 'Main script 2 failed'
+    exit 1
+  fi
+  unbuffer python3 $MAIN_SCRIPT_3_PATH | tee $OUTPUT_FILE_3
+  if [ $? -ne 0 ]; then
+    echo 'Main script 3 failed'
+    exit 1
+  fi
+  echo 'Main scripts completed'
+" >> $LOGFILE 2>&1
+
+echo "Completed Docker container run" >> $LOGFILE
